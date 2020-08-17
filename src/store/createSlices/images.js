@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import api from "../api";
-import { serviceErrors } from "../helpers";
+import api from "../../api";
 
 const initialState = {
   images: [],
@@ -61,9 +60,7 @@ export const fetchImages = params => async dispatch => {
 
     dispatch(getImagesListSuccess(data));
   } catch (errors) {
-    const error = serviceErrors(errors);
-
-    dispatch(setError(error));
+    dispatch(setError(errors.toString()));
   }
 };
 

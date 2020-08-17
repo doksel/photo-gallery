@@ -1,8 +1,7 @@
 import React from "react";
-import { WrapContent } from "./styles";
 
 const Content = ({ children }) => (
-  <WrapContent>{children}</WrapContent>
+  <div>{children}</div>
 );
 
 export default Content;

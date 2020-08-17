@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import MainPage from "../view/pages/MainPage";
-import UserPage from "../view/pages/UserPage";
+import MainPage from "./view/pages/MainPage";
+import UserPage from "./view/pages/UserPage";
 
 const App = () => {
   return (

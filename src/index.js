@@ -9,6 +9,9 @@ import store from "./store";
 import { ThemeProvider, theme } from "./styles/theme";
 import './index.css';
 
+const createHistory = require("history").createBrowserHistory;
+export const history = createHistory();
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
