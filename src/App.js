@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-function App() {
+import MainPage from "../view/pages/MainPage";
+import UserPage from "../view/pages/UserPage";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <Switch>
+        <Route path="/" exact component={MainPage} />
+        <Route path="/users/:id?/:action?" exact component={UserPage} />
+        <Redirect to="/" />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
