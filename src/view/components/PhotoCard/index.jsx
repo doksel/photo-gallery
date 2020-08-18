@@ -1,15 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const PhotoCard = () => (
-    <div class="photo-card-section">
-        <div class="backTo">back to prev page</div>
+import Button from "../../common/Button";
 
-        <div class="slider" style="background-image: url(&quot;https://images.unsplash.com/photo-1570483473437-920dc6a3042e?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEwNDAxOH0&quot;);">
-            <div class="fullname">
-                <a href="/user/k4i_w3i">Kai Wei</a>
-            </div>
-        </div>
-    </div>
+import { Card, Image, Fullname } from "./styles";
+
+const PhotoCard = ({ image = {}, goBack }) => (
+  <Card>
+    <Button type="primary" onClick={goBack}>
+      back to prev page
+    </Button>
+
+    {image ? (
+      <Image image={image}>
+        <Fullname>
+          <Link to={`/user/${image.user && image.user.username}`}>
+            {image.user && image.user.name}
+          </Link>
+        </Fullname>
+      </Image>
+    ) : (
+      <Fullname>Image wasn't downloaded</Fullname>
+    )}
+  </Card>
 );
 
 export default PhotoCard;

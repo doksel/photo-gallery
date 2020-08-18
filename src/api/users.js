@@ -2,7 +2,7 @@ import axios from "axios";
 import { setHeader, API_URL } from "./index";
 
 export default {
-  getImages: async () => {
+  getUsers: async () => {
     let config = {
       method: "GET",
       baseURL: `${API_URL}/photos`,
@@ -14,10 +14,10 @@ export default {
     return data;
   },
 
-  getImageById: async (id) => {
+  getUserByUsername: async (username) => {
     let config = {
       method: "GET",
-      baseURL: `${API_URL}/photos/${id}`,
+      baseURL: `${API_URL}/users/${username}`,
       headers: setHeader(),
     };
 
@@ -26,10 +26,10 @@ export default {
     return data;
   },
 
-  getImageRandom: async (id) => {
+  getUserRandom: async (id) => {
     let config = {
       method: "GET",
-      baseURL: `${API_URL}/photos/random`,
+      baseURL: `${API_URL}/users/:username`,
       headers: setHeader(),
     };
 

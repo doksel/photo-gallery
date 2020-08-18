@@ -1,7 +1,26 @@
-import React from "./node_modules/react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const Banner = () => (
-    <div>Banner</div>
-);
+import Loader from "../../common/Loader";
+import { getImageRandom, clearImage } from "../../../store/createSlices/images";
+import { Slider } from "./styles";
+
+const Banner = () => {
+  const dispatch = useDispatch();
+  const image = useSelector((state) => state.images.image);
+  const loading = useSelector((state) => state.images.loading);
+
+  useEffect(() => {
+    // вылетает ошибка "Rate Limit Exceeded"
+    // setInterval(() => {
+    //   dispatch(getImageRandom());
+    // }, 10000);
+    dispatch(getImageRandom());
+
+    return () => dispatch(clearImage());
+  }, []);
+
+  return loading ? <Loader /> : <Slider image={image} />;
+};
 
 export default Banner;

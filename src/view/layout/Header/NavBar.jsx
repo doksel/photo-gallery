@@ -1,13 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import Input from "../../common/Input";
+
+import { MenuLinks } from "../../../helpers/values";
+
+import { Menu } from "./styles";
 
 const NavBar = () => (
-    <div class="menu">
-        <a class="item" href="/all/">All</a>
-        <a class="item" href="/animal/3330452">Animals</a>
-        <a class="item" href="/films/4694315">Films</a>
-        <a class="item" href="/food&amp;drink/3330455">Food&amp;Drink</a>
-        <a class="item" href="/nature/3330448">Nature</a>
-    </div>
+  <Menu>
+    {MenuLinks.map((link, index) => (
+      <Link to={link.to} key={index}>
+        {link.name}
+      </Link>
+    ))}
+    <Input />
+  </Menu>
 );
 
 export default NavBar;

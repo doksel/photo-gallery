@@ -4,22 +4,25 @@ import { useHistory, useParams } from "react-router-dom";
 
 import Header from "../../layout/Header";
 import Content from "../../layout/Content";
-import UserCard from "../../components/UserCard";
+import PhotoCard from "../../components/PhotoCard";
 import Loader from "../../common/Loader";
 
-import { getUserByUsername } from "../../../store/createSlices/users";
+import { getImageById, clearImage } from "../../../store/createSlices/images";
 
-const UserPage = () => {
+const PhotoPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  let { name } = useParams();
+  let { id } = useParams();
 
-  const user = useSelector((state) => state.users.user);
-  const loading = useSelector((state) => state.users.loading);
+  const image = useSelector((state) => state.images.image);
+  const loading = useSelector((state) => state.images.loading);
 
   useEffect(() => {
-    dispatch(getUserByUsername(name));
+    dispatch(getImageById(id));
+
+    return () => dispatch(clearImage());
   }, []);
+
   return (
     <>
       <Header />
@@ -28,11 +31,11 @@ const UserPage = () => {
         {loading ? (
           <Loader />
         ) : (
-          <UserCard goBack={history.goBack} user={user} />
+          <PhotoCard goBack={history.goBack} image={image} />
         )}
       </Content>
     </>
   );
 };
 
-export default UserPage;
+export default PhotoPage;

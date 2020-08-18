@@ -2,20 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 import api from "../../api";
 
 const initialState = {
-  images: [],
-  image: null,
+  users: [],
+  user: null,
   loading: false,
   error: "",
 };
 
 const calculatorSlice = createSlice({
-  name: "images",
+  name: "users",
   initialState,
   reducers: {
-    getImagesList(state, { payload }) {
+    getUsersList(state, { payload }) {
       return {
         ...state,
-        images: [...payload],
+        users: [...payload],
       };
     },
     setError(state, { payload }) {
@@ -30,16 +30,17 @@ const calculatorSlice = createSlice({
         loading: payload,
       };
     },
-    getImage(state, { payload }) {
+
+    getUser(state, { payload }) {
       return {
         ...state,
-        image: { ...payload },
+        user: { ...payload },
       };
     },
-    clearImage(state) {
+    clearUser(state) {
       return {
         ...state,
-        image: null,
+        user: null,
       };
     },
     clearErrore(state) {
@@ -52,10 +53,10 @@ const calculatorSlice = createSlice({
 });
 
 export const {
-  getImagesList,
-  getImage,
+  getUsersList,
+  getUser,
   setError,
-  clearImage,
+  clearUser,
   clearErrore,
   setLoading,
 } = calculatorSlice.actions;
@@ -65,9 +66,9 @@ export default calculatorSlice.reducer;
 export const getImages = (params) => async (dispatch) => {
   try {
     dispatch(setLoading(true));
-    const { data } = await api.images.getImages(params);
+    const { data } = await api.users.getUsers(params);
 
-    dispatch(getImagesList(data));
+    dispatch(getUsersList(data));
     dispatch(setLoading(false));
   } catch (errors) {
     dispatch(setError(errors.toString()));
@@ -75,25 +76,12 @@ export const getImages = (params) => async (dispatch) => {
   }
 };
 
-export const getImageById = (id) => async (dispatch) => {
+export const getUserByUsername = (name) => async (dispatch) => {
   try {
     dispatch(setLoading(true));
-    const { data } = await api.images.getImageById(id);
+    const { data } = await api.users.getUserByUsername(name);
 
-    dispatch(getImage(data));
-    dispatch(setLoading(false));
-  } catch (errors) {
-    dispatch(setError(errors.toString()));
-    dispatch(setLoading(false));
-  }
-};
-
-export const getImageRandom = () => async (dispatch) => {
-  try {
-    dispatch(setLoading(true));
-    const { data } = await api.images.getImageRandom();
-
-    dispatch(getImage(data));
+    dispatch(getUser(data));
     dispatch(setLoading(false));
   } catch (errors) {
     dispatch(setError(errors.toString()));

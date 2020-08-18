@@ -2,6 +2,8 @@ import React from "react";
 
 import Header from "../../layout/Header";
 import Content from "../../layout/Content";
+import Banner from "../../components/Banner";
+import GalleryList from "../../components/GalleryList";
 
 const MainPage = () => {
   return (
@@ -9,7 +11,8 @@ const MainPage = () => {
       <Header />
 
       <Content>
-        Main page
+        <Banner />
+        <GalleryList />
       </Content>
     </>
   );
