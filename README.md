@@ -3,9 +3,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Use the following libraries in the project: 
 
 styled-components: for styling elements
+
 qs: to form a query parameters
+
 axios: for api requests
+
 @reduxjs/toolkit: for create store
+
 
 ## Available Scripts
 
