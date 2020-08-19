@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Use the following libraries in the project: 
+
+styled-components: for styling elements
+qs: to form a query parameters
+axios: for api requests
+@reduxjs/toolkit: for create store
+
 ## Available Scripts
 
 In the project directory, you can run:
