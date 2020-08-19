@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Use the following libraries in the project: 
+## Use the following libraries in the project: 
 
 styled-components: for styling elements
 
