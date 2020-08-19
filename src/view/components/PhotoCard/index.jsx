@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 import Button from "../../common/Button";
 
-import { Card, Image, Fullname } from "./styles";
+import { Card, Image, Fullname, WrapButton } from "./styles";
 
 const PhotoCard = ({ image = {}, goBack }) => (
   <Card>
-    <Button type="primary" onClick={goBack}>
-      back to prev page
-    </Button>
+    <WrapButton>
+      <Button type="primary" onClick={goBack}>
+        back to prev page
+      </Button>
+    </WrapButton>
 
     {image ? (
       <Image image={image}>
@@ -20,7 +22,7 @@ const PhotoCard = ({ image = {}, goBack }) => (
         </Fullname>
       </Image>
     ) : (
-      <Fullname>Image wasn't downloaded</Fullname>
+      <h1>Image wasn't downloaded</h1>
     )}
   </Card>
 );

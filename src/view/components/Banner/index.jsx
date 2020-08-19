@@ -20,7 +20,15 @@ const Banner = () => {
     return () => dispatch(clearImage());
   }, []);
 
-  return loading ? <Loader /> : <Slider image={image} />;
+  return loading ? (
+    <Loader />
+  ) : image ? (
+    <Slider image={image} />
+  ) : (
+    <Slider>
+      <div>Banner wasn't downloaded</div>
+    </Slider>
+  );
 };
 
 export default Banner;

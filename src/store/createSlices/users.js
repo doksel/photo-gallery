@@ -12,10 +12,10 @@ const calculatorSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    getUsersList(state, { payload }) {
+    getUser(state, { payload }) {
       return {
         ...state,
-        users: [...payload],
+        user: { ...payload },
       };
     },
     setError(state, { payload }) {
@@ -28,13 +28,6 @@ const calculatorSlice = createSlice({
       return {
         ...state,
         loading: payload,
-      };
-    },
-
-    getUser(state, { payload }) {
-      return {
-        ...state,
-        user: { ...payload },
       };
     },
     clearUser(state) {
@@ -53,7 +46,6 @@ const calculatorSlice = createSlice({
 });
 
 export const {
-  getUsersList,
   getUser,
   setError,
   clearUser,
@@ -62,19 +54,6 @@ export const {
 } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;
-
-export const getImages = (params) => async (dispatch) => {
-  try {
-    dispatch(setLoading(true));
-    const { data } = await api.users.getUsers(params);
-
-    dispatch(getUsersList(data));
-    dispatch(setLoading(false));
-  } catch (errors) {
-    dispatch(setError(errors.toString()));
-    dispatch(setLoading(false));
-  }
-};
 
 export const getUserByUsername = (name) => async (dispatch) => {
   try {

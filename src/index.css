@@ -28,3 +28,30 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.notification {
+  background: white;
+  border-left: 1rem solid #8a8a8a;
+  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 25rem;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  transition: all 0.5s;
+  color: #000;
+}
+
+.notification.error {
+  border-color: #c34a42;
+}
+
+.notification.active {
+  top: 0;
+  transition: all 0.5s;
+}

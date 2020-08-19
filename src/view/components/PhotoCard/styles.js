@@ -35,3 +35,11 @@ export const BackTo = styled.div`
     text-decoration: underline;
   }
 `;
+
+export const WrapButton = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+`;

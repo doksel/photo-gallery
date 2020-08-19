@@ -10,6 +10,9 @@ export const Slider = styled.div`
   background-image: url(${(props) => props.image && props.image.urls.regular});
   filter: grayscale(0.5);
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:before {
     position: absolute;

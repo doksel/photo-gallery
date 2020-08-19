@@ -45,3 +45,11 @@ export const Image = styled.div`
     }
   }
 `;
+
+export const WrapButton = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+`;
